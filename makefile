@@ -2,7 +2,9 @@ OBJS = cesso.cpp
 
 OBJ_NAME = cesso
 
-SDLIBS = -lSDL2 -lSDL2_image
+SDLIBS = -lSDL2_image
+
+SDLFLAGS = $(shell sdl2-config --cflags --libs)
 
 all : $(OBJS) 
-	g++ $(OBJS) -w $(SDLIBS) -o $(OBJ_NAME)
+	g++ $(SDLFLAGS)  $(OBJS) -w -o $(OBJ_NAME) $(SDLIBS)
